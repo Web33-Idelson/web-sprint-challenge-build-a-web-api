@@ -61,10 +61,27 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+
+Node.js is asynchronous and event driven meaning it does not wait for an api to return data, but rather moves to the next api, while the server 
+gets a response from the previous api. Node.js is also very fast. Node.js uses a single threaded program and the same program can provide service to a much larger number of requests than traditional servers. 
+
+Some of the core features of Express are it sets up middlewares in order to respond to HTTP/ RESTful requests. It also provides all the features provided by Node.js. It is possible to define a routing table in order to perform different HTTP operations. This is useful because it makes our app more component based.
+
 1. Understand and explain the use of Middleware?
+
+Middleware functions are functions that have access to the request object and the next middleware function in the application's request-response cycle. The next middleware function is commonly denoted by a variable named next. Middleware can execute any code, make changes to the req and res objects, end the req-res cycle, and call in the next middleware in the stack.
+
 1. The basic principles of the REST architectural style.
+
+The basic principles of the REST architectural style are uniform interface, client-server, stateless, cacheable, layered system, code on demand.
+
 1. Understand and explain the use of Express Routers.
+
+We use routers to give our app different endpoints to respond to client requests. This makes our app more component based and breaks it up so not everything is in one file. We define routing methods of the Express app object that correspond to HTTP methods, like router.get or router.post.
+
 1. Describe tooling used to manually test the correctness of an API.
+
+We use a tool called Postman to test the correctness of our API. Once our app is built, we go into Postman and are able to test our HTTP requests to ensure our code is correct. This is how we can tell what is and what is not working correctly in our code.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
