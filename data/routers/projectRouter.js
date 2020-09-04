@@ -5,18 +5,17 @@ const ProjectHubs = require('../helpers/projectModel.js');
 // GET
 router.get("/", (req, res) => {
     ProjectHubs.get()
-    .then((projects) => {
-        res.status(200).json({ projects })
+        .then((projects) => {
+            res.status(200).json({ projects })
     })
-    .catch((err) => {
-        res.status(500).json({ error: 'The projects information could not be retreived.'})
+        .catch((err) => {
+            res.status(500).json({ error: 'The projects information could not be retreived.'})
     })
 });
 
 //GET BY ID
 router.get("/:id", checkProjectId, (req, res) => {
     const {id} = req.params;
-
     try{
         ProjectHubs.get(req.project).then((project) => {
             res.status(200).json({ project })
@@ -39,9 +38,7 @@ router.post("/", (req, res) => {
 
 // DELETE
 router.delete("/:id", checkProjectId, (req, res) => {
-    
     const {id} = req.params;
-
     try{
         ProjectHubs.remove(req.project).then((deletedProject) => {
             res.status(200).json({ deleted: deletedProject})
@@ -70,7 +67,6 @@ router.put("/:id", checkProjectId, checkProject, (req, res) => {
 // MIDDLEWARE
 function checkProjectId(req, res, next){
     const projectId = req.params.id;
-
     ProjectHubs.get(projectId)
     .then((project) => {
         console.log(project)
@@ -87,7 +83,6 @@ function checkProjectId(req, res, next){
 
 function checkProject(req, res, next){
     const projectRequirement = req.body;
-
     if (!projectRequirement.name || !projectRequirement.description){
         res.status(400).json({ message: "Enter a description and notes"})
     } else {
